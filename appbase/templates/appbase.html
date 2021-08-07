@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="EN">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>django template</title>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <h1>books database:</h1>
+            <div class="grid">
+                {% for book in books %}
+                    <div data-id="{{ book.id }}" class="card">
+                        <a data-id="{{ book.id }}" class="labelRev" href="#">{{ book.name }}</a>
+                        <div class="colors">
+                            <a href="/edit/{{ book.id }}">Edit</a>
+                            <a href="/delete/{{ book.id }}">Delete</a>
+                            <p>{{ book.isbn }}</p>
+                        </div>
+                        <a data-id="{{ book.id }}" class="labelRev" href="#"><img class="bookImg" src="#"></a>
+                    </div>
+                {% endfor %}     
+            </div>
+            <a href="add">Add a book</a>
+        </div>
+    </body>
+</html>
